@@ -1,0 +1,20 @@
+name = "cloudflare"
+display_name = "Cloudflare"
+category = "cloud"
+description = "Edge network platform for CDN, DNS, DDoS protection, Workers serverless functions, and web security"
+setup_url = "https://dash.cloudflare.com/profile/api-tokens"
+revoke_url = "https://dash.cloudflare.com/profile/api-tokens"
+free_tier = "Generous free plan"
+
+[[env_vars]]
+name = "CLOUDFLARE_API_TOKEN"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.cloudflare.com/client/v4/user/tokens/verify"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

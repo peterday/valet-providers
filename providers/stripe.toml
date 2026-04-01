@@ -1,5 +1,7 @@
 name = "stripe"
 display_name = "Stripe"
+category = "payments"
+description = "Payment processing platform for subscriptions, billing, invoicing, and financial infrastructure APIs"
 setup_url = "https://dashboard.stripe.com/apikeys"
 revoke_url = "https://dashboard.stripe.com/apikeys"
 

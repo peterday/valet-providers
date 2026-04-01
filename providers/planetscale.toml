@@ -1,0 +1,25 @@
+name = "planetscale"
+display_name = "PlanetScale"
+category = "database"
+description = "Serverless MySQL database platform with branching, zero-downtime schema migrations, and horizontal scaling"
+setup_url = "https://app.planetscale.com"
+revoke_url = "https://app.planetscale.com"
+free_tier = "Hobby plan with 1 database"
+
+[[env_vars]]
+name = "PLANETSCALE_SERVICE_TOKEN"
+prefix = "pscale_tkn_"
+sensitive = true
+
+[[env_vars]]
+name = "PLANETSCALE_SERVICE_TOKEN_ID"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.planetscale.com/v1/organizations"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

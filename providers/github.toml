@@ -1,0 +1,26 @@
+name = "github"
+display_name = "GitHub"
+category = "social"
+description = "Code hosting and collaboration platform API for repositories, pull requests, issues, actions, and Git workflows"
+setup_url = "https://github.com/settings/tokens"
+revoke_url = "https://github.com/settings/tokens"
+free_tier = "Free for public and private repos"
+
+[[env_vars]]
+name = "GITHUB_TOKEN"
+prefixes = ["ghp_", "github_pat_"]
+sensitive = true
+
+[[env_vars]]
+name = "GH_TOKEN"
+prefixes = ["ghp_", "github_pat_"]
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.github.com/user"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

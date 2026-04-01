@@ -1,0 +1,28 @@
+name = "sanity"
+display_name = "Sanity"
+category = "cms"
+description = "Headless CMS with real-time collaboration, structured content, GROQ query language, and customizable studio"
+setup_url = "https://www.sanity.io/manage"
+revoke_url = "https://www.sanity.io/manage"
+free_tier = "Free plan: 100K API requests/month"
+
+[[env_vars]]
+name = "SANITY_AUTH_TOKEN"
+sensitive = true
+
+[[env_vars]]
+name = "SANITY_STUDIO_PROJECT_ID"
+sensitive = false
+
+[[env_vars]]
+name = "SANITY_STUDIO_DATASET"
+sensitive = false
+
+[validate]
+method = "GET"
+url = "https://api.sanity.io/v1/users/me"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

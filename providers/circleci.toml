@@ -1,0 +1,20 @@
+name = "circleci"
+display_name = "CircleCI"
+category = "devtools"
+description = "Continuous integration and delivery (CI/CD) platform for automated testing, building, and deployment pipelines"
+setup_url = "https://app.circleci.com/settings/user/tokens"
+revoke_url = "https://app.circleci.com/settings/user/tokens"
+free_tier = "6,000 build minutes/month"
+
+[[env_vars]]
+name = "CIRCLECI_TOKEN"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://circleci.com/api/v2/me"
+auth = "Circle-Token"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

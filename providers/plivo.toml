@@ -1,0 +1,25 @@
+name = "plivo"
+display_name = "Plivo"
+category = "communication"
+description = "Cloud communications API for SMS, MMS, voice calls, and phone number management"
+setup_url = "https://console.plivo.com/dashboard/"
+revoke_url = "https://console.plivo.com/dashboard/"
+free_tier = "Trial account with free credits"
+
+[[env_vars]]
+name = "PLIVO_AUTH_ID"
+sensitive = true
+
+[[env_vars]]
+name = "PLIVO_AUTH_TOKEN"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.plivo.com/v1/Account/{{auth_id}}/"
+auth = "Basic"
+
+[rotation]
+strategy = "manual"
+programmatic = false
+warning = "Regenerating auth token in console invalidates the previous token immediately"

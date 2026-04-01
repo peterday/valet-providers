@@ -1,0 +1,24 @@
+name = "auth0"
+display_name = "Auth0"
+category = "auth"
+description = "Identity platform for authentication, authorization, single sign-on (SSO), and user management"
+setup_url = "https://manage.auth0.com/#/apis"
+revoke_url = "https://manage.auth0.com/#/applications"
+free_tier = "Up to 25,000 MAUs"
+
+[[env_vars]]
+name = "AUTH0_DOMAIN"
+sensitive = false
+
+[[env_vars]]
+name = "AUTH0_CLIENT_ID"
+sensitive = false
+
+[[env_vars]]
+name = "AUTH0_CLIENT_SECRET"
+sensitive = true
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true
+warning = "Tokens expire after 24h by default; use client credentials flow for automatic refresh"

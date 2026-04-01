@@ -1,0 +1,24 @@
+name = "google-gemini"
+display_name = "Google Gemini"
+category = "ai"
+description = "Google AI API for Gemini multimodal models, text generation, vision, and reasoning tasks"
+setup_url = "https://aistudio.google.com/apikey"
+revoke_url = "https://aistudio.google.com/apikey"
+free_tier = "Generous free tier with rate limits"
+
+[[env_vars]]
+name = "GEMINI_API_KEY"
+sensitive = true
+
+[[env_vars]]
+name = "GOOGLE_API_KEY"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://generativelanguage.googleapis.com/v1beta/models"
+auth = "x-goog-api-key"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

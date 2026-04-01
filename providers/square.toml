@@ -1,0 +1,24 @@
+name = "square"
+display_name = "Square"
+category = "payments"
+description = "Payment processing and point-of-sale APIs for in-person and online transactions, invoices, and inventory"
+setup_url = "https://developer.squareup.com/apps"
+revoke_url = "https://developer.squareup.com/apps"
+free_tier = "Sandbox is free; transaction-based pricing"
+
+[[env_vars]]
+name = "SQUARE_ACCESS_TOKEN"
+sensitive = true
+
+[[env_vars]]
+name = "SQUARE_APPLICATION_ID"
+sensitive = false
+
+[validate]
+method = "GET"
+url = "https://connect.squareup.com/v2/merchants/me"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

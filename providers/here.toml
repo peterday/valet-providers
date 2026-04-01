@@ -1,0 +1,15 @@
+name = "here"
+display_name = "HERE"
+category = "maps"
+description = "Location services API for maps, routing, geocoding, traffic, and fleet management"
+setup_url = "https://developer.here.com/projects"
+revoke_url = "https://developer.here.com/projects"
+free_tier = "250,000 transactions/month"
+
+[[env_vars]]
+name = "HERE_API_KEY"
+sensitive = true
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

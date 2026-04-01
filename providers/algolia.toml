@@ -1,0 +1,28 @@
+name = "algolia"
+display_name = "Algolia"
+category = "search"
+description = "Hosted search API for fast, relevant full-text search, autocomplete, and discovery in apps and websites"
+setup_url = "https://dashboard.algolia.com/account/api-keys"
+revoke_url = "https://dashboard.algolia.com/account/api-keys"
+free_tier = "10,000 search requests/month, 10,000 records"
+
+[[env_vars]]
+name = "ALGOLIA_APP_ID"
+sensitive = false
+
+[[env_vars]]
+name = "ALGOLIA_API_KEY"
+sensitive = true
+
+[[env_vars]]
+name = "ALGOLIA_ADMIN_KEY"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://{{app_id}}-dsn.algolia.net/1/keys"
+auth = "X-Algolia-API-Key"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

@@ -1,0 +1,32 @@
+name = "contentful"
+display_name = "Contentful"
+category = "cms"
+description = "Headless CMS with structured content modeling, APIs for content delivery, and localization support"
+setup_url = "https://app.contentful.com"
+revoke_url = "https://app.contentful.com"
+free_tier = "Community plan: 25K records, 2 locales"
+
+[[env_vars]]
+name = "CONTENTFUL_SPACE_ID"
+sensitive = false
+
+[[env_vars]]
+name = "CONTENTFUL_ACCESS_TOKEN"
+sensitive = true
+
+[[env_vars]]
+name = "CONTENTFUL_MANAGEMENT_TOKEN"
+sensitive = true
+
+[[env_vars]]
+name = "CONTENTFUL_PREVIEW_TOKEN"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.contentful.com/spaces"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

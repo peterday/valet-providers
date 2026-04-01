@@ -1,0 +1,24 @@
+name = "meilisearch"
+display_name = "Meilisearch"
+category = "search"
+description = "Open-source, fast, typo-tolerant search engine API for full-text search with filtering and faceting"
+setup_url = "https://cloud.meilisearch.com"
+revoke_url = "https://cloud.meilisearch.com"
+free_tier = "Self-hosted is free; Cloud: 100K documents"
+
+[[env_vars]]
+name = "MEILI_MASTER_KEY"
+sensitive = true
+
+[[env_vars]]
+name = "MEILISEARCH_HOST"
+sensitive = false
+
+[validate]
+method = "GET"
+url = "https://{{host}}/keys"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

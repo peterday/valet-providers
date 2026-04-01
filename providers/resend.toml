@@ -1,0 +1,21 @@
+name = "resend"
+display_name = "Resend"
+category = "communication"
+description = "Modern email API for developers to send transactional and marketing emails with React templates"
+setup_url = "https://resend.com/api-keys"
+revoke_url = "https://resend.com/api-keys"
+free_tier = "100 emails/day, 3,000/month"
+
+[[env_vars]]
+name = "RESEND_API_KEY"
+prefix = "re_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.resend.com/domains"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

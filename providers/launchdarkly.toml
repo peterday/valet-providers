@@ -1,0 +1,24 @@
+name = "launchdarkly"
+display_name = "LaunchDarkly"
+category = "monitoring"
+description = "Feature flag and feature management platform for progressive rollouts, A/B testing, and experimentation"
+setup_url = "https://app.launchdarkly.com/settings"
+revoke_url = "https://app.launchdarkly.com/settings"
+
+[[env_vars]]
+name = "LAUNCHDARKLY_SDK_KEY"
+prefix = "sdk-"
+sensitive = true
+
+[[env_vars]]
+name = "LAUNCHDARKLY_API_KEY"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://app.launchdarkly.com/api/v2/caller"
+auth = "Authorization"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

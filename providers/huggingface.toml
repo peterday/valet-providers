@@ -1,0 +1,26 @@
+name = "huggingface"
+display_name = "Hugging Face"
+category = "ai"
+description = "ML model hub and inference API for NLP, computer vision, audio models, and dataset hosting"
+setup_url = "https://huggingface.co/settings/tokens"
+revoke_url = "https://huggingface.co/settings/tokens"
+free_tier = "Free Inference API with rate limits"
+
+[[env_vars]]
+name = "HF_TOKEN"
+prefix = "hf_"
+sensitive = true
+
+[[env_vars]]
+name = "HUGGINGFACE_API_KEY"
+prefix = "hf_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://huggingface.co/api/whoami-v2"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

@@ -1,0 +1,21 @@
+name = "vercel"
+display_name = "Vercel"
+category = "cloud"
+description = "Frontend deployment platform for Next.js, serverless functions, edge computing, and preview deployments"
+setup_url = "https://vercel.com/account/tokens"
+revoke_url = "https://vercel.com/account/tokens"
+free_tier = "Hobby plan"
+
+[[env_vars]]
+name = "VERCEL_TOKEN"
+prefix = "vcp_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.vercel.com/v2/user"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

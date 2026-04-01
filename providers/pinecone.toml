@@ -1,0 +1,20 @@
+name = "pinecone"
+display_name = "Pinecone"
+category = "search"
+description = "Vector database for similarity search, embeddings storage, and AI/ML retrieval-augmented generation (RAG)"
+setup_url = "https://app.pinecone.io"
+revoke_url = "https://app.pinecone.io"
+free_tier = "Starter plan: 1 index, 100K vectors"
+
+[[env_vars]]
+name = "PINECONE_API_KEY"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.pinecone.io/indexes"
+auth = "Api-Key"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

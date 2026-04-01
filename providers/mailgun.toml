@@ -1,0 +1,25 @@
+name = "mailgun"
+display_name = "Mailgun"
+category = "communication"
+description = "Transactional email API for sending, receiving, tracking, and validating emails at scale"
+setup_url = "https://app.mailgun.com/settings/api_security"
+revoke_url = "https://app.mailgun.com/settings/api_security"
+free_tier = "100 emails/day for first month"
+
+[[env_vars]]
+name = "MAILGUN_API_KEY"
+prefix = "key-"
+sensitive = true
+
+[[env_vars]]
+name = "MAILGUN_DOMAIN"
+sensitive = false
+
+[validate]
+method = "GET"
+url = "https://api.mailgun.net/v3/domains"
+auth = "Basic"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

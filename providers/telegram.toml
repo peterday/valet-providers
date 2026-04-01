@@ -1,0 +1,21 @@
+name = "telegram"
+display_name = "Telegram"
+category = "social"
+description = "Messaging platform bot API for building chatbots, sending messages, inline queries, and group management"
+setup_url = "https://t.me/BotFather"
+revoke_url = "https://t.me/BotFather"
+free_tier = "Completely free"
+
+[[env_vars]]
+name = "TELEGRAM_BOT_TOKEN"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.telegram.org/bot{{token}}/getMe"
+auth = "url-path"
+
+[rotation]
+strategy = "manual"
+programmatic = false
+warning = "Use /revoke then /token via @BotFather to rotate"

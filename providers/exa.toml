@@ -1,5 +1,7 @@
 name = "exa"
 display_name = "Exa"
+category = "search"
+description = "AI-powered web search API for semantic search, content retrieval, and knowledge discovery"
 setup_url = "https://dashboard.exa.ai/api-keys"
 revoke_url = "https://dashboard.exa.ai/api-keys"
 free_tier = "1000 free searches/month"

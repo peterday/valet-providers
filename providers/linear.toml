@@ -1,0 +1,21 @@
+name = "linear"
+display_name = "Linear"
+category = "devtools"
+description = "Project management and issue tracking tool for software teams with cycles, roadmaps, and workflow automation"
+setup_url = "https://linear.app/settings"
+revoke_url = "https://linear.app/settings"
+free_tier = "Free plan for up to 250 issues"
+
+[[env_vars]]
+name = "LINEAR_API_KEY"
+prefix = "lin_api_"
+sensitive = true
+
+[validate]
+method = "POST"
+url = "https://api.linear.app/graphql"
+auth = "Authorization"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

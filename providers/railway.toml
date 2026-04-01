@@ -1,0 +1,19 @@
+name = "railway"
+display_name = "Railway"
+category = "cloud"
+description = "App deployment platform for instant infrastructure provisioning, CI/CD, and managed databases"
+setup_url = "https://railway.com/account/tokens"
+revoke_url = "https://railway.com/account/tokens"
+free_tier = "$5/month trial credit"
+
+[[env_vars]]
+name = "RAILWAY_API_TOKEN"
+sensitive = true
+
+[[env_vars]]
+name = "RAILWAY_TOKEN"
+sensitive = true
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

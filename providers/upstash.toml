@@ -1,0 +1,20 @@
+name = "upstash"
+display_name = "Upstash"
+category = "database"
+description = "Serverless Redis and Kafka with REST APIs for caching, rate limiting, and event streaming"
+setup_url = "https://console.upstash.com"
+revoke_url = "https://console.upstash.com"
+free_tier = "10,000 commands/day"
+
+[[env_vars]]
+name = "UPSTASH_REDIS_REST_URL"
+sensitive = false
+
+[[env_vars]]
+name = "UPSTASH_REDIS_REST_TOKEN"
+sensitive = true
+
+[rotation]
+strategy = "manual"
+programmatic = false
+warning = "Regenerate token from console; invalidates the previous token immediately"

@@ -1,0 +1,25 @@
+name = "sentry"
+display_name = "Sentry"
+category = "monitoring"
+description = "Error tracking and performance monitoring for applications with stack traces, breadcrumbs, and release tracking"
+setup_url = "https://sentry.io/settings/auth-tokens/"
+revoke_url = "https://sentry.io/settings/auth-tokens/"
+free_tier = "Developer plan: 5,000 events/month"
+
+[[env_vars]]
+name = "SENTRY_AUTH_TOKEN"
+prefixes = ["sntrys_", "sntryu_"]
+sensitive = true
+
+[[env_vars]]
+name = "SENTRY_DSN"
+sensitive = false
+
+[validate]
+method = "GET"
+url = "https://sentry.io/api/0/"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

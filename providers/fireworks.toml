@@ -1,0 +1,21 @@
+name = "fireworks"
+display_name = "Fireworks AI"
+category = "ai"
+description = "Fast inference API for open-source LLMs, image models, and fine-tuned model deployment"
+setup_url = "https://fireworks.ai/api-keys"
+revoke_url = "https://fireworks.ai/api-keys"
+free_tier = "Free credits on signup"
+
+[[env_vars]]
+name = "FIREWORKS_API_KEY"
+prefix = "fw_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.fireworks.ai/inference/v1/models"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

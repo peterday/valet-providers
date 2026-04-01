@@ -1,0 +1,25 @@
+name = "postmark"
+display_name = "Postmark"
+category = "communication"
+description = "Transactional email delivery service for fast, reliable inbox delivery with templates and tracking"
+setup_url = "https://account.postmarkapp.com"
+revoke_url = "https://account.postmarkapp.com"
+free_tier = "100 emails/month"
+
+[[env_vars]]
+name = "POSTMARK_SERVER_TOKEN"
+sensitive = true
+
+[[env_vars]]
+name = "POSTMARK_ACCOUNT_TOKEN"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.postmarkapp.com/server"
+auth = "X-Postmark-Server-Token"
+
+[rotation]
+strategy = "manual"
+programmatic = false
+warning = "Regenerating a server token invalidates the previous token immediately"

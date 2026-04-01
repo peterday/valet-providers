@@ -1,0 +1,16 @@
+name = "mapbox"
+display_name = "Mapbox"
+category = "maps"
+description = "Custom maps and location services for navigation, geocoding, search, and spatial data visualization"
+setup_url = "https://account.mapbox.com/access-tokens/"
+revoke_url = "https://account.mapbox.com/access-tokens/"
+free_tier = "50,000 map loads/month"
+
+[[env_vars]]
+name = "MAPBOX_ACCESS_TOKEN"
+prefixes = ["pk.", "sk."]
+sensitive = true
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

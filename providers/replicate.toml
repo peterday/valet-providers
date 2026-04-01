@@ -1,0 +1,21 @@
+name = "replicate"
+display_name = "Replicate"
+category = "ai"
+description = "Cloud API for running and fine-tuning open-source ML models including image, video, and language models"
+setup_url = "https://replicate.com/account/api-tokens"
+revoke_url = "https://replicate.com/account/api-tokens"
+free_tier = "Limited free predictions for new accounts"
+
+[[env_vars]]
+name = "REPLICATE_API_TOKEN"
+prefix = "r8_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.replicate.com/v1/account"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

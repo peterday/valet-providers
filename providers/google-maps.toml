@@ -1,0 +1,16 @@
+name = "google-maps"
+display_name = "Google Maps"
+category = "maps"
+description = "Mapping and geolocation APIs for geocoding, directions, places, distance matrix, and static/dynamic maps"
+setup_url = "https://console.cloud.google.com/apis/credentials"
+revoke_url = "https://console.cloud.google.com/apis/credentials"
+free_tier = "$200/month free credit"
+
+[[env_vars]]
+name = "GOOGLE_MAPS_API_KEY"
+prefix = "AIza"
+sensitive = true
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

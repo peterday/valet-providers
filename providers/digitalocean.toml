@@ -1,0 +1,25 @@
+name = "digitalocean"
+display_name = "DigitalOcean"
+category = "cloud"
+description = "Cloud infrastructure provider for virtual machines (droplets), managed databases, Kubernetes, and app hosting"
+setup_url = "https://cloud.digitalocean.com/account/api/tokens"
+revoke_url = "https://cloud.digitalocean.com/account/api/tokens"
+
+[[env_vars]]
+name = "DIGITALOCEAN_TOKEN"
+prefix = "dop_v1_"
+sensitive = true
+
+[[env_vars]]
+name = "DIGITALOCEAN_ACCESS_TOKEN"
+prefix = "dop_v1_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.digitalocean.com/v2/account"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

@@ -1,0 +1,20 @@
+name = "netlify"
+display_name = "Netlify"
+category = "cloud"
+description = "Web hosting and deployment platform for static sites, serverless functions, and JAMstack applications"
+setup_url = "https://app.netlify.com/user/applications#personal-access-tokens"
+revoke_url = "https://app.netlify.com/user/applications#personal-access-tokens"
+free_tier = "Starter plan"
+
+[[env_vars]]
+name = "NETLIFY_AUTH_TOKEN"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.netlify.com/api/v1/user"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

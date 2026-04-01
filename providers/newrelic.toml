@@ -1,0 +1,26 @@
+name = "newrelic"
+display_name = "New Relic"
+category = "monitoring"
+description = "Full-stack observability platform for APM, infrastructure monitoring, logs, and distributed tracing"
+setup_url = "https://one.newrelic.com/api-keys"
+revoke_url = "https://one.newrelic.com/api-keys"
+free_tier = "100 GB/month free ingest, 1 user"
+
+[[env_vars]]
+name = "NEW_RELIC_API_KEY"
+prefix = "NRAK-"
+sensitive = true
+
+[[env_vars]]
+name = "NEW_RELIC_LICENSE_KEY"
+prefix = "NRII-"
+sensitive = true
+
+[validate]
+method = "POST"
+url = "https://api.newrelic.com/graphql"
+auth = "Api-Key"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

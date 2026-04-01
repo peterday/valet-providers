@@ -1,0 +1,24 @@
+name = "cohere"
+display_name = "Cohere"
+category = "ai"
+description = "NLP API for text embeddings, semantic search, text generation, classification, and reranking"
+setup_url = "https://dashboard.cohere.com/api-keys"
+revoke_url = "https://dashboard.cohere.com/api-keys"
+free_tier = "Rate-limited trial keys"
+
+[[env_vars]]
+name = "COHERE_API_KEY"
+sensitive = true
+
+[[env_vars]]
+name = "CO_API_KEY"
+sensitive = true
+
+[validate]
+method = "POST"
+url = "https://api.cohere.com/v1/check-api-key"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

@@ -1,0 +1,21 @@
+name = "airtable"
+display_name = "Airtable"
+category = "devtools"
+description = "Spreadsheet-database hybrid for project management, CRM, content planning, and workflow automation"
+setup_url = "https://airtable.com/create/tokens"
+revoke_url = "https://airtable.com/create/tokens"
+free_tier = "Free plan: 1,200 records/base"
+
+[[env_vars]]
+name = "AIRTABLE_PERSONAL_ACCESS_TOKEN"
+prefix = "pat"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.airtable.com/v0/meta/whoami"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

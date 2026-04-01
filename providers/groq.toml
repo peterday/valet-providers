@@ -1,0 +1,21 @@
+name = "groq"
+display_name = "Groq"
+category = "ai"
+description = "Ultra-fast LLM inference API for running open-source models with low-latency hardware acceleration"
+setup_url = "https://console.groq.com/keys"
+revoke_url = "https://console.groq.com/keys"
+free_tier = "Generous free tier with rate limits"
+
+[[env_vars]]
+name = "GROQ_API_KEY"
+prefix = "gsk_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.groq.com/openai/v1/models"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

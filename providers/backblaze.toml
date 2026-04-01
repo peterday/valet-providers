@@ -1,0 +1,25 @@
+name = "backblaze"
+display_name = "Backblaze B2"
+category = "storage"
+description = "Affordable cloud object storage (B2) compatible with S3 for backups, archives, and media storage"
+setup_url = "https://secure.backblaze.com/app_keys.htm"
+revoke_url = "https://secure.backblaze.com/app_keys.htm"
+free_tier = "10 GB storage, 1 GB/day egress"
+
+[[env_vars]]
+name = "B2_APPLICATION_KEY_ID"
+sensitive = true
+
+[[env_vars]]
+name = "B2_APPLICATION_KEY"
+sensitive = true
+
+[validate]
+method = "POST"
+url = "https://api.backblazeb2.com/b2api/v3/b2_authorize_account"
+auth = "Basic"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false
+warning = "Authorization tokens expire after 24h; application keys persist until revoked"

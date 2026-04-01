@@ -1,5 +1,7 @@
 name = "elevenlabs"
 display_name = "ElevenLabs"
+category = "ai"
+description = "AI voice synthesis and text-to-speech API for realistic voice generation, cloning, and audio content"
 setup_url = "https://elevenlabs.io/app/settings/api-keys"
 revoke_url = "https://elevenlabs.io/app/settings/api-keys"
 free_tier = "10,000 characters/month"

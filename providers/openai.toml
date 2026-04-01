@@ -1,5 +1,7 @@
 name = "openai"
 display_name = "OpenAI"
+category = "ai"
+description = "AI API for GPT language models, chat completions, embeddings, image generation (DALL-E), and assistants"
 setup_url = "https://platform.openai.com/api-keys"
 revoke_url = "https://platform.openai.com/api-keys"
 free_tier = "$5 credit on signup"

@@ -1,0 +1,26 @@
+name = "posthog"
+display_name = "PostHog"
+category = "monitoring"
+description = "Open-source product analytics with event tracking, session recording, feature flags, and A/B testing"
+setup_url = "https://app.posthog.com/settings/project"
+revoke_url = "https://app.posthog.com/settings/user"
+free_tier = "1M events/month, 15K session recordings/month"
+
+[[env_vars]]
+name = "POSTHOG_API_KEY"
+prefix = "phc_"
+sensitive = false
+
+[[env_vars]]
+name = "POSTHOG_PERSONAL_API_KEY"
+prefix = "phx_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://app.posthog.com/api/users/@me"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

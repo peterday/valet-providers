@@ -1,0 +1,21 @@
+name = "segment"
+display_name = "Segment"
+category = "monitoring"
+description = "Customer data platform for collecting, routing, and unifying user event data across tools and warehouses"
+setup_url = "https://app.segment.com"
+revoke_url = "https://app.segment.com"
+free_tier = "1,000 visitors/month"
+
+[[env_vars]]
+name = "SEGMENT_WRITE_KEY"
+sensitive = true
+
+[validate]
+method = "POST"
+url = "https://api.segment.io/v1/batch"
+auth = "Basic"
+
+[rotation]
+strategy = "manual"
+programmatic = false
+warning = "Regenerating the write key from the dashboard invalidates the previous key immediately"

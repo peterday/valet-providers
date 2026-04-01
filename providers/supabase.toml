@@ -1,5 +1,7 @@
 name = "supabase"
 display_name = "Supabase"
+category = "database"
+description = "Open-source Firebase alternative with PostgreSQL database, authentication, storage, and realtime subscriptions"
 setup_url = "https://supabase.com/dashboard/project/_/settings/api"
 revoke_url = "https://supabase.com/dashboard/project/_/settings/api"
 free_tier = "2 free projects"

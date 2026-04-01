@@ -1,5 +1,7 @@
 name = "anthropic"
 display_name = "Anthropic"
+category = "ai"
+description = "AI assistant API for Claude language models, chat completions, text generation, and reasoning tasks"
 setup_url = "https://console.anthropic.com/settings/keys"
 revoke_url = "https://console.anthropic.com/settings/keys"
 free_tier = "$5 credit on signup"

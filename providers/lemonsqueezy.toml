@@ -1,0 +1,19 @@
+name = "lemonsqueezy"
+display_name = "Lemon Squeezy"
+category = "payments"
+description = "Payment platform for selling digital products, subscriptions, license keys, and SaaS billing"
+setup_url = "https://app.lemonsqueezy.com/settings/api"
+revoke_url = "https://app.lemonsqueezy.com/settings/api"
+
+[[env_vars]]
+name = "LEMONSQUEEZY_API_KEY"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.lemonsqueezy.com/v1/users/me"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

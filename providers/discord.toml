@@ -1,0 +1,25 @@
+name = "discord"
+display_name = "Discord"
+category = "social"
+description = "Chat platform API for building bots, managing servers, sending messages, and community integrations"
+setup_url = "https://discord.com/developers/applications"
+revoke_url = "https://discord.com/developers/applications"
+free_tier = "Bot API is free"
+
+[[env_vars]]
+name = "DISCORD_TOKEN"
+sensitive = true
+
+[[env_vars]]
+name = "DISCORD_BOT_TOKEN"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://discord.com/api/v10/users/@me"
+auth = "Bot"
+
+[rotation]
+strategy = "manual"
+programmatic = false
+warning = "Regenerating the token in Developer Portal invalidates the previous token immediately"

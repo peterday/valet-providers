@@ -1,0 +1,21 @@
+name = "render"
+display_name = "Render"
+category = "cloud"
+description = "Cloud hosting platform for web services, static sites, cron jobs, and managed PostgreSQL databases"
+setup_url = "https://dashboard.render.com/settings#api-keys"
+revoke_url = "https://dashboard.render.com/settings#api-keys"
+free_tier = "Free tier for static sites"
+
+[[env_vars]]
+name = "RENDER_API_KEY"
+prefix = "rnd_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.render.com/v1/owners"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

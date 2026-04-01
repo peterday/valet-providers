@@ -1,0 +1,31 @@
+name = "slack"
+display_name = "Slack"
+category = "social"
+description = "Workplace messaging platform API for building bots, sending notifications, and workflow integrations"
+setup_url = "https://api.slack.com/apps"
+revoke_url = "https://api.slack.com/apps"
+free_tier = "Free plan with limited message history"
+
+[[env_vars]]
+name = "SLACK_BOT_TOKEN"
+prefix = "xoxb-"
+sensitive = true
+
+[[env_vars]]
+name = "SLACK_APP_TOKEN"
+prefix = "xapp-"
+sensitive = true
+
+[[env_vars]]
+name = "SLACK_SIGNING_SECRET"
+sensitive = true
+
+[validate]
+method = "POST"
+url = "https://slack.com/api/auth.test"
+auth = "Bearer"
+
+[rotation]
+strategy = "manual"
+programmatic = false
+warning = "Reinstall app to rotate bot token; app-level tokens can be rotated separately"

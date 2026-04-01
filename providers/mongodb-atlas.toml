@@ -1,0 +1,28 @@
+name = "mongodb-atlas"
+display_name = "MongoDB Atlas"
+category = "database"
+description = "Cloud-hosted MongoDB document database with full-text search, vector search, and serverless instances"
+setup_url = "https://cloud.mongodb.com"
+revoke_url = "https://cloud.mongodb.com"
+free_tier = "M0 free cluster, 512 MB"
+
+[[env_vars]]
+name = "MONGODB_ATLAS_PUBLIC_KEY"
+sensitive = true
+
+[[env_vars]]
+name = "MONGODB_ATLAS_PRIVATE_KEY"
+sensitive = true
+
+[[env_vars]]
+name = "MONGODB_URI"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://cloud.mongodb.com/api/atlas/v2/groups"
+auth = "Digest"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

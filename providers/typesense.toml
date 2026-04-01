@@ -1,0 +1,24 @@
+name = "typesense"
+display_name = "Typesense"
+category = "search"
+description = "Open-source, typo-tolerant search engine with faceting, geo-search, and vector search capabilities"
+setup_url = "https://cloud.typesense.org"
+revoke_url = "https://cloud.typesense.org"
+free_tier = "Self-hosted is free; Cloud has free trial"
+
+[[env_vars]]
+name = "TYPESENSE_API_KEY"
+sensitive = true
+
+[[env_vars]]
+name = "TYPESENSE_HOST"
+sensitive = false
+
+[validate]
+method = "GET"
+url = "https://{{host}}/collections"
+auth = "X-TYPESENSE-API-KEY"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

@@ -1,0 +1,20 @@
+name = "firebase"
+display_name = "Firebase"
+category = "auth"
+description = "Google app platform for authentication, real-time database, cloud functions, hosting, and push notifications"
+setup_url = "https://console.firebase.google.com"
+revoke_url = "https://console.cloud.google.com/apis/credentials"
+free_tier = "Spark plan with generous free tier"
+
+[[env_vars]]
+name = "FIREBASE_API_KEY"
+sensitive = false
+
+[[env_vars]]
+name = "GOOGLE_APPLICATION_CREDENTIALS"
+sensitive = true
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false
+warning = "Firebase API key is safe to expose in client code; Admin SDK uses service account JSON file"

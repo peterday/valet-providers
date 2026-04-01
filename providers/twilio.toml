@@ -1,0 +1,26 @@
+name = "twilio"
+display_name = "Twilio"
+category = "communication"
+description = "Cloud communications platform for SMS, voice, video, WhatsApp, and programmable messaging APIs"
+setup_url = "https://console.twilio.com"
+revoke_url = "https://console.twilio.com"
+free_tier = "Trial account with $15.50 credit"
+
+[[env_vars]]
+name = "TWILIO_ACCOUNT_SID"
+prefix = "AC"
+sensitive = true
+
+[[env_vars]]
+name = "TWILIO_AUTH_TOKEN"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.twilio.com/2010-04-01/Accounts.json"
+auth = "Basic"
+
+[rotation]
+strategy = "rolling"
+programmatic = true
+warning = "Supports secondary auth token; promote secondary to primary for zero-downtime rotation"

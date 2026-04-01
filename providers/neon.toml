@@ -1,0 +1,20 @@
+name = "neon"
+display_name = "Neon"
+category = "database"
+description = "Serverless PostgreSQL with branching, autoscaling, and point-in-time recovery for modern applications"
+setup_url = "https://console.neon.tech/app/settings/api-keys"
+revoke_url = "https://console.neon.tech/app/settings/api-keys"
+free_tier = "Free plan with generous limits"
+
+[[env_vars]]
+name = "NEON_API_KEY"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://console.neon.tech/api/v2/projects"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

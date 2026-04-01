@@ -1,0 +1,24 @@
+name = "turso"
+display_name = "Turso"
+category = "database"
+description = "Edge-hosted SQLite database (libSQL) with embedded replicas, branching, and global distribution"
+setup_url = "https://turso.tech/app"
+revoke_url = "https://turso.tech/app"
+free_tier = "500 databases, 9 GB storage"
+
+[[env_vars]]
+name = "TURSO_AUTH_TOKEN"
+sensitive = true
+
+[[env_vars]]
+name = "TURSO_DATABASE_URL"
+sensitive = false
+
+[validate]
+method = "GET"
+url = "https://api.turso.tech/v1/organizations"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

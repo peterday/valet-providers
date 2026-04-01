@@ -1,0 +1,26 @@
+name = "clerk"
+display_name = "Clerk"
+category = "auth"
+description = "Drop-in authentication and user management with pre-built UI components, SSO, and multi-factor auth"
+setup_url = "https://dashboard.clerk.com"
+revoke_url = "https://dashboard.clerk.com"
+free_tier = "Up to 10,000 MAUs"
+
+[[env_vars]]
+name = "CLERK_SECRET_KEY"
+prefixes = ["sk_test_", "sk_live_"]
+sensitive = true
+
+[[env_vars]]
+name = "CLERK_PUBLISHABLE_KEY"
+prefixes = ["pk_test_", "pk_live_"]
+sensitive = false
+
+[validate]
+method = "GET"
+url = "https://api.clerk.com/v1/users?limit=1"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

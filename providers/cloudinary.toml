@@ -1,0 +1,32 @@
+name = "cloudinary"
+display_name = "Cloudinary"
+category = "storage"
+description = "Media management platform for image and video upload, transformation, optimization, and CDN delivery"
+setup_url = "https://console.cloudinary.com/settings/api-keys"
+revoke_url = "https://console.cloudinary.com/settings/api-keys"
+free_tier = "25 credits/month, ~25 GB storage"
+
+[[env_vars]]
+name = "CLOUDINARY_URL"
+sensitive = true
+
+[[env_vars]]
+name = "CLOUDINARY_CLOUD_NAME"
+sensitive = false
+
+[[env_vars]]
+name = "CLOUDINARY_API_KEY"
+sensitive = true
+
+[[env_vars]]
+name = "CLOUDINARY_API_SECRET"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.cloudinary.com/v1_1/{{cloud_name}}/usage"
+auth = "Basic"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

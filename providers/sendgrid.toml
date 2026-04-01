@@ -1,0 +1,21 @@
+name = "sendgrid"
+display_name = "SendGrid"
+category = "communication"
+description = "Email delivery platform for transactional and marketing emails with templates, analytics, and deliverability tools"
+setup_url = "https://app.sendgrid.com/settings/api_keys"
+revoke_url = "https://app.sendgrid.com/settings/api_keys"
+free_tier = "100 emails/day"
+
+[[env_vars]]
+name = "SENDGRID_API_KEY"
+prefix = "SG."
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.sendgrid.com/v3/scopes"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

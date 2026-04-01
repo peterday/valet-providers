@@ -1,0 +1,24 @@
+name = "paypal"
+display_name = "PayPal"
+category = "payments"
+description = "Online payment processing for transactions, invoicing, subscriptions, and merchant services"
+setup_url = "https://developer.paypal.com/dashboard/applications"
+revoke_url = "https://developer.paypal.com/dashboard/applications"
+free_tier = "Sandbox is free; transaction-based pricing"
+
+[[env_vars]]
+name = "PAYPAL_CLIENT_ID"
+sensitive = true
+
+[[env_vars]]
+name = "PAYPAL_CLIENT_SECRET"
+sensitive = true
+
+[validate]
+method = "POST"
+url = "https://api-m.paypal.com/v1/oauth2/token"
+auth = "Basic"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

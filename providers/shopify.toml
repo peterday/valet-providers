@@ -1,0 +1,29 @@
+name = "shopify"
+display_name = "Shopify"
+category = "devtools"
+description = "E-commerce platform API for building storefronts, managing products, orders, and custom shopping experiences"
+setup_url = "https://dev.shopify.com"
+revoke_url = "https://dev.shopify.com"
+free_tier = "Free development stores; Partner program is free"
+
+[[env_vars]]
+name = "SHOPIFY_ACCESS_TOKEN"
+prefix = "shpat_"
+sensitive = true
+
+[[env_vars]]
+name = "SHOPIFY_API_KEY"
+sensitive = true
+
+[[env_vars]]
+name = "SHOPIFY_API_SECRET"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://{{store}}.myshopify.com/admin/api/2024-01/shop.json"
+auth = "X-Shopify-Access-Token"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

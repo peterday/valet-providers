@@ -1,0 +1,26 @@
+name = "perplexity"
+display_name = "Perplexity"
+category = "ai"
+description = "AI search and answer API combining language models with real-time web search for grounded responses"
+setup_url = "https://www.perplexity.ai/settings/api"
+revoke_url = "https://www.perplexity.ai/settings/api"
+
+[[env_vars]]
+name = "PERPLEXITY_API_KEY"
+prefix = "pplx-"
+sensitive = true
+
+[[env_vars]]
+name = "PPLX_API_KEY"
+prefix = "pplx-"
+sensitive = true
+
+[validate]
+method = "POST"
+url = "https://api.perplexity.ai/chat/completions"
+auth = "Bearer"
+costs_credits = true
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

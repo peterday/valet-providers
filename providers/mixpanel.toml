@@ -1,0 +1,25 @@
+name = "mixpanel"
+display_name = "Mixpanel"
+category = "monitoring"
+description = "Product analytics platform for user behavior tracking, event analytics, funnels, and retention analysis"
+setup_url = "https://mixpanel.com/settings/project"
+revoke_url = "https://mixpanel.com/settings/project"
+free_tier = "Up to 20M events/month"
+
+[[env_vars]]
+name = "MIXPANEL_TOKEN"
+sensitive = false
+
+[[env_vars]]
+name = "MIXPANEL_API_SECRET"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://mixpanel.com/api/app/me"
+auth = "Basic"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false
+warning = "Project secret is deprecated and retiring March 2027; use service accounts instead"

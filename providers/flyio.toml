@@ -1,5 +1,7 @@
 name = "flyio"
 display_name = "Fly.io"
+category = "cloud"
+description = "Global application hosting platform for deploying containers, VMs, and edge applications close to users"
 setup_url = "https://fly.io/dashboard/personal/tokens"
 revoke_url = "https://fly.io/dashboard/personal/tokens"
 

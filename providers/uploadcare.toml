@@ -1,0 +1,24 @@
+name = "uploadcare"
+display_name = "Uploadcare"
+category = "storage"
+description = "File upload and processing platform for image optimization, transformation, and adaptive delivery"
+setup_url = "https://app.uploadcare.com/projects"
+revoke_url = "https://app.uploadcare.com/projects"
+free_tier = "3,000 uploads/month, 1 GB storage"
+
+[[env_vars]]
+name = "UPLOADCARE_PUBLIC_KEY"
+sensitive = false
+
+[[env_vars]]
+name = "UPLOADCARE_SECRET_KEY"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.uploadcare.com/project/"
+auth = "Uploadcare.Simple"
+
+[rotation]
+strategy = "manual"
+programmatic = false

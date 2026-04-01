@@ -1,0 +1,20 @@
+name = "paddle"
+display_name = "Paddle"
+category = "payments"
+description = "Payment infrastructure for SaaS billing, subscriptions, checkout, tax compliance, and revenue recovery"
+setup_url = "https://vendors.paddle.com/authentication"
+revoke_url = "https://vendors.paddle.com/authentication"
+
+[[env_vars]]
+name = "PADDLE_API_KEY"
+prefix = "pdl_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.paddle.com/event-types"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true

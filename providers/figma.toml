@@ -1,0 +1,27 @@
+name = "figma"
+display_name = "Figma"
+category = "devtools"
+description = "Design platform API for accessing files, components, design tokens, and automating design workflows"
+setup_url = "https://www.figma.com/developers/api#access-tokens"
+revoke_url = "https://www.figma.com/settings"
+free_tier = "Free plan: 3 Figma and 3 FigJam files"
+
+[[env_vars]]
+name = "FIGMA_TOKEN"
+prefix = "figd_"
+sensitive = true
+
+[[env_vars]]
+name = "FIGMA_PERSONAL_ACCESS_TOKEN"
+prefix = "figd_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.figma.com/v1/me"
+auth = "X-Figma-Token"
+
+[rotation]
+strategy = "manual"
+programmatic = false
+warning = "Tokens valid for ~90 days; regenerate from settings"

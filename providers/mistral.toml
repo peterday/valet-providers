@@ -1,0 +1,20 @@
+name = "mistral"
+display_name = "Mistral AI"
+category = "ai"
+description = "European AI API for Mistral language models, chat completions, embeddings, and code generation"
+setup_url = "https://console.mistral.ai/api-keys"
+revoke_url = "https://console.mistral.ai/api-keys"
+free_tier = "Limited free tier available"
+
+[[env_vars]]
+name = "MISTRAL_API_KEY"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.mistral.ai/v1/models"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = false

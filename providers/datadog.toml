@@ -1,0 +1,24 @@
+name = "datadog"
+display_name = "Datadog"
+category = "monitoring"
+description = "Cloud monitoring and observability platform for metrics, traces, logs, and application performance management (APM)"
+setup_url = "https://app.datadoghq.com/organization-settings/api-keys"
+revoke_url = "https://app.datadoghq.com/organization-settings/api-keys"
+free_tier = "14-day free trial"
+
+[[env_vars]]
+name = "DD_API_KEY"
+sensitive = true
+
+[[env_vars]]
+name = "DD_APP_KEY"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.datadoghq.com/api/v1/validate"
+auth = "DD-API-KEY"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true
