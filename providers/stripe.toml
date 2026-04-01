@@ -1,0 +1,29 @@
+name = "stripe"
+display_name = "Stripe"
+setup_url = "https://dashboard.stripe.com/apikeys"
+revoke_url = "https://dashboard.stripe.com/apikeys"
+
+[[env_vars]]
+name = "STRIPE_SECRET_KEY"
+prefixes = ["sk_test_", "sk_live_"]
+sensitive = true
+
+[[env_vars]]
+name = "STRIPE_PUBLISHABLE_KEY"
+prefixes = ["pk_test_", "pk_live_"]
+sensitive = false
+
+[[env_vars]]
+name = "STRIPE_WEBHOOK_SECRET"
+prefix = "whsec_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.stripe.com/v1/balance"
+auth = "Bearer"
+
+[rotation]
+strategy = "rolling"
+programmatic = true
+warning = "Old key has a 24-hour grace period after rolling to a new key"

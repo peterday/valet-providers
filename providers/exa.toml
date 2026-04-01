@@ -1,0 +1,19 @@
+name = "exa"
+display_name = "Exa"
+setup_url = "https://dashboard.exa.ai/api-keys"
+revoke_url = "https://dashboard.exa.ai/api-keys"
+free_tier = "1000 free searches/month"
+
+[[env_vars]]
+name = "EXA_API_KEY"
+sensitive = true
+
+[validate]
+method = "POST"
+url = "https://api.exa.ai/search"
+auth = "Bearer"
+costs_credits = true
+
+[rotation]
+strategy = "manual"
+programmatic = false

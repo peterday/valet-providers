@@ -1,0 +1,24 @@
+name = "supabase"
+display_name = "Supabase"
+setup_url = "https://supabase.com/dashboard/project/_/settings/api"
+revoke_url = "https://supabase.com/dashboard/project/_/settings/api"
+free_tier = "2 free projects"
+
+[[env_vars]]
+name = "SUPABASE_URL"
+sensitive = false
+
+[[env_vars]]
+name = "SUPABASE_ANON_KEY"
+prefix = "eyJ"
+sensitive = false
+
+[[env_vars]]
+name = "SUPABASE_SERVICE_ROLE_KEY"
+prefix = "eyJ"
+sensitive = true
+
+[rotation]
+strategy = "nuclear"
+programmatic = false
+warning = "Changing the JWT secret invalidates ALL existing keys — anon, service role, and user JWTs"

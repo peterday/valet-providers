@@ -1,0 +1,24 @@
+name = "openai"
+display_name = "OpenAI"
+setup_url = "https://platform.openai.com/api-keys"
+revoke_url = "https://platform.openai.com/api-keys"
+free_tier = "$5 credit on signup"
+
+[[env_vars]]
+name = "OPENAI_API_KEY"
+prefix = "sk-"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.openai.com/v1/models"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true
+
+[master_key]
+env_var = "OPENAI_ADMIN_KEY"
+prefix = "sk-admin-"
+note = "Admin API key can create/revoke project keys programmatically"

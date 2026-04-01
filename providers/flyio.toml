@@ -1,0 +1,18 @@
+name = "flyio"
+display_name = "Fly.io"
+setup_url = "https://fly.io/dashboard/personal/tokens"
+revoke_url = "https://fly.io/dashboard/personal/tokens"
+
+[[env_vars]]
+name = "FLY_API_TOKEN"
+prefix = "fo1_"
+sensitive = true
+
+[validate]
+method = "GET"
+url = "https://api.machines.dev/v1/apps"
+auth = "Bearer"
+
+[rotation]
+strategy = "create-then-revoke"
+programmatic = true
